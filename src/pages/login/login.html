@@ -1,0 +1,13 @@
+<ion-content padding>
+  <div class='logo'>
+    <img src='./assets/imgs/camera.png' />
+  </div>
+  <div padding-top>
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input [(ngModel)]='username' type="text"></ion-input>
+    </ion-item>
+    <button (click)='login()' class='login-button' color='danger' ion-button block>Entrar</button>
+  </div>
+
+</ion-content>

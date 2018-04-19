@@ -1,14 +1,66 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color='primary'>
+        <ion-title class='header-font'>
+            InstaTotvers
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content hide-fab>
+    <div *ngIf='!posts || posts.length <= 0'>
+        NENHUM POST
+    </div>
+
+    <ion-card *ngFor='let card of posts '>
+        <!-- <ion-item>
+            <ion-avatar item-start>
+              <img src="img/marty-avatar.png">
+            </ion-avatar>
+            <h2>Marty McFly</h2>
+            <p>November 5, 1955</p>
+          </ion-item>
+   -->
+        <img padding [src]='sanitizer.bypassSecurityTrustUrl(card.photo)'>
+
+        <ion-card-content *ngIf='card.legend != ""'>
+            <p>{{card.legend}}</p>
+        </ion-card-content>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button icon-left clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>{{card.likes.length}}</div>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button icon-left clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>{{card.comments.length}}</div>
+                </button>
+            </ion-col>
+            <ion-col center text-center>
+                <ion-note>
+                    11h ago
+                </ion-note>
+            </ion-col>
+        </ion-row>
+
+    </ion-card>
+
+    <ion-fab bottom right #fab>
+        <button color='secondary' ion-fab>
+            <ion-icon name="add"></ion-icon>
+        </button>
+        <ion-fab-list side="top">
+            <button (click)="navigate('folder')" color='warning' ion-fab>
+                <ion-icon name="folder"></ion-icon>
+            </button>
+        </ion-fab-list>
+        <ion-fab-list side="left">
+            <button (click)="navigate('camera')" color='warning' ion-fab>
+                <ion-icon name="camera"></ion-icon>
+            </button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>

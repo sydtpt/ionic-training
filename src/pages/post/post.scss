@@ -1,0 +1,19 @@
+page-post {
+    background: #f9f9f9;
+    .comment{
+        .text-input{
+            height: 80px;
+            background-color: #ffffff;
+        }
+
+    }
+    .select-pitcture {
+        padding: 70px 0;
+        border: 2px solid #f9f9f9;
+        text-align: center;
+
+    }
+    .action-sheet-cancel {
+        color:red !important;
+    }
+}

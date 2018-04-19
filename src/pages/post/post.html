@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color='primary'>
+        <ion-title>post</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <img *ngIf='photo' [src]="sanitizer.bypassSecurityTrustUrl(photo)">
+    <div (click)='showPostOptions()' *ngIf='!photo' class='select-pitcture'>
+        Selecione uma foto
+    </div>
+    <div class="comment">
+        <ion-textarea placeholder='Insira um comentário' [(ngModel)]='legend' maxlength="{{maxSizeComment}}"></ion-textarea>
+        <ion-label style='text-align: right;'>{{legend.length}}/{{maxSizeComment}}</ion-label>
+        <!-- <ion-label style='float: right' align-right>{{ maxSizeComment - legend.length }} caracteres restantes</ion-label> -->
+    </div>
+    <div>
+        <ion-label>Share via:</ion-label>
+        <ion-item no-lines>
+            <ion-label>Instagram</ion-label>
+            <ion-toggle color='secondary' [(ngModel)]="shareInstagram"></ion-toggle>
+        </ion-item>
+    </div>
+    <button [disabled]='!photo' ion-button (click)='post()' full color='secondary'>Publicar </button>
+</ion-content>
