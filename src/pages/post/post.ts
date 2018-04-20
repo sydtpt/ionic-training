@@ -13,7 +13,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 })
 export class PostPage {
     legend: string = '';
-    maxSizeComment = 150;
+    maxSizeComment = 50;
     photo: string;
     shareInstagram: boolean;
 
