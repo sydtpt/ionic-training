@@ -37,14 +37,14 @@ export class PostPage {
         if (param === 'camera') {
             this.takePicture();
         } else {
-            this.selectPicure();
+            this.selectPicture();
         }
     }
 
     post() {
         let loading = this.loadingController.create({});
         loading.present();
-        this.postService.postPhoto({
+        this.postService.sendPhoto({
             image: this.photo,
             legend: this.legend
         }).subscribe(res => {
@@ -83,7 +83,7 @@ export class PostPage {
         });
     }
 
-    selectPicure() {
+    selectPicture() {
         let options: ImagePickerOptions = {
             maximumImagesCount: 1
         };
@@ -114,7 +114,7 @@ export class PostPage {
                     text: 'Selecionar do álbum',
                     icon: 'folder',
                     handler: () => {
-                        this.selectPicure();
+                        this.selectPicture();
                     }
                 }, {
                     text: 'Cancelar',

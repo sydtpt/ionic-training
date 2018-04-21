@@ -1,8 +1,8 @@
 export interface Post {
-    image?: string;
+    image: string;
     legend: string;
-    likes: string[]
-    comments: Comments[];
+    likes?: string[]
+    comments?: Comments[];
     createdAt?: string;
 }
 

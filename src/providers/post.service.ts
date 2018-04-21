@@ -12,7 +12,7 @@ export class PostService {
     ) {
     }
 
-    postPhoto(post){
+    sendPhoto(post: Post){
         return this._http.post(this.server+'post', post);
     }
 

@@ -7,12 +7,20 @@
 </ion-header>
 
 <ion-content hide-fab>
+
+
     <div *ngIf='!posts || posts.length <= 0'>
         NENHUM POST
     </div>
+
+
+
     <ion-refresher (ionRefresh)="getPosts($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
+
+
+
     <ion-card *ngFor='let card of posts '>
         <!-- <ion-item>
             <ion-avatar item-start>
@@ -48,7 +56,9 @@
             </ion-col>
         </ion-row>
     </ion-card>
-    <ion-infinite-scroll (ionInfinite)="getMorePosts($event)">
+
+
+    <ion-infinite-scroll *ngIf='hasNext' (ionInfinite)="getMorePosts($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
 

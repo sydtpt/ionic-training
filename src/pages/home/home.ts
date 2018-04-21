@@ -35,6 +35,8 @@ export class HomePage {
                 if (event) {
                     event.complete();
                 }
+            }, err => {
+
             });
     }
 
